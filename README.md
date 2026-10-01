@@ -2,15 +2,18 @@
 
 ## [👉 Click here to explore the interactive model](https://prj-regulatory-intermediaries.github.io/ARQGOV_Model/)
 
-**Website:** https://prj-regulatory-intermediaries.github.io/ARQGOV_Model/
+**GitHub Pages URL:** https://prj-regulatory-intermediaries.github.io/ARQGOV_Model/
 
-This research project visualizes the governance ontology proposed in David Levi-Faur's preliminary manuscript, *Law and the Architectures of Governance: Towards Relational Leximetrics Approach*.
+This is an English-language interactive research atlas based on David Levi-Faur’s preliminary manuscript, *Law and the Architectures of Governance: Towards Relational Leximetrics Approach*.
 
-### English v1.1 deployment
+### Features
+- Navigable conceptual map connecting the eight governance dimensions.
+- Searchable catalogue of 83 source-derived categories, with references and explicit unresolved definitions.
+- Illustrative seven-edge regulatory relationship network.
+- Relational coding framework, methodological attributes, metrics, audit notes and cross-layer relationships.
 
-The original interactive application uses seven root-level files: `index.html`, `styles.css`, `app.js`, `data.js`, `ontology.json`, `.nojekyll`, and `README.md`. The site must be deployed with all files together; `index.html` alone is not sufficient. The translated complete package should replace the simplified prototype currently in the repository.
+### Deployment
+Upload the **contents of this folder**, not the ZIP itself and not an enclosing directory, to the repository’s `main` branch. All six site files must share the repository root: `index.html`, `styles.css`, `data.js`, `app.js`, `ontology.json`, and `.nojekyll`. Retain this `README.md` as a seventh file. Under **Settings → Pages**, select **Deploy from a branch → main → /(root)**. GitHub Pages will serve `index.html` automatically.
 
-### Scope
-Eight conceptual dimensions, 83 source-derived categories, an interactive diagram, a searchable catalogue, seven illustrative relational edges, methodology, provenance and twelve audit notes.
-
-**Research status:** interpretive reconstruction of a preliminary manuscript, not formally validated by the author. Public dissemination of substantive manuscript content should be approved by the author.
+### Scholarly status
+Analytical reconstruction for academic discussion; not a figure formally endorsed by the author. The manuscript is preliminary and some category definitions and operational thresholds remain unresolved. Publication in a public repository should be authorized by the author.
