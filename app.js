@@ -161,7 +161,7 @@ function renderCatalog(){
   const corpus=[i.name,...i.fields.flatMap(f=>[f.label,f.value])].join(' ').toLocaleLowerCase('en-US');
   return (!q||corpus.includes(q))&&(status==='all'||status==='incomplete'&&['lacuna','parcial'].includes(i.status)||status==='complete'&&!['lacuna','parcial'].includes(i.status));
  });
- $('#categoryCount').innerHTML=`${items.length}<small>OF ${d.count} ENTRADAS</small>`;
+ $('#categoryCount').innerHTML=`${items.length}<small>OF ${d.count} ENTRIES</small>`;
  $('#catalogItems').innerHTML=items.length?items.map(i=>{
  const description=i.fields.slice(1).map(f=>f.value).find(Boolean)||'No definition in the manuscript.';
  return `<button type="button" class="category-card" data-item="${esc(i.id)}"><span class="card-index">${esc(d.en.toUpperCase())} / ${String(i.position).padStart(2,'0')}</span><h3>${esc(i.name)}</h3><p>${esc(description.length>132?description.slice(0,132)+'…':description)}</p><div class="category-card-foot"><span class="tag ${statusCls(i.status)}">${statusName(i.status)}</span><span class="card-arrow" aria-hidden="true">↗</span></div></button>`;
