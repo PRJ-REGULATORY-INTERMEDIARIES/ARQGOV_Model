@@ -4,6 +4,10 @@
 
 **GitHub Pages URL:** https://prj-regulatory-intermediaries.github.io/ARQGOV_Model/
 
+**Current release: v1.2 (English-only interface; cache-busted assets).**
+
+If an older Portuguese interface appears, refresh with **Ctrl+F5** (Windows) or open the site in a private browsing window. Verify that the page footer says **version 1.2**.
+
 This is an English-language interactive research atlas based on David Levi-Faur’s preliminary manuscript, *Law and the Architectures of Governance: Towards Relational Leximetrics Approach*.
 
 ### Features
