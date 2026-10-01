@@ -1,12 +1,30 @@
-# ARQGOV review module — integrity check
+# ARQGOV English Conceptual Review v1.3 — Validation
 
-Updated package: English atlas 1.1 + review module 1.2 (Option A: local CSV export).
+## Source and editorial integrity
 
-- Source model: `data.js`, `ontology.json`, and `.nojekyll` are byte-for-byte identical to the supplied v1.1 ZIP.
-- Browser-side JS: `node --check app.js` and `node --check review.js` pass.
-- Static integration: all HTML script references resolve, including the load order `data.js` → `review.js` → `app.js`; IDs are unique.
-- Review trigger hooks: category, field, dimension, auxiliary, illustrative edge, theoretical map connection; the old details panel remains in place.
-- Export: UTF-8 BOM + CRLF CSV; stable field IDs; formula-injection guard; local JSON backup/import; a separate compose-email action explicitly requiring manual attachment.
-- No newly introduced network API endpoint, external script, tracker, server database or automatic sending. No emails have been sent.
-- A full real-browser end-to-end test was attempted but the container's Chromium blocks both `file://` and loopback navigation with `ERR_BLOCKED_BY_ADMINISTRATOR`; thus interactive smoke testing on actual GitHub Pages remains a deployment check. Do not present static JS syntax validation as a successful browser-run test.
-- Public-repository warning: public GitHub Pages does not provide recipient-only access. Do not commit reviewer CSV/JSON files.
+- Adapted from the user's newly supplied `ARQGOV_English_GitHub_Pages_v1_2.zip`, not the previous review ZIP as the canonical version.
+- `data.js`, `ontology.json`, and `.nojekyll` are byte-identical to the new source package.
+- The eight conceptual dimension titles and their 83 entries remain in English, as supplied.
+- Source-derived definitions, source references and examples were not silently filled or changed.
+- Removed earlier review-version translation remnants (`ENTRADAS`, `relacional`), and the catalogue now displays the English dimension title only.
+
+## Functionality
+
+- Separate field, category, dimension, auxiliary measurement, conceptual-map connection and illustrative-network edge review controls.
+- Modal with named reviewer, optional email, assessment, comment and proposed wording.
+- Browser-local note/draft storage and edit/replace-by-reviewer-and-target behaviour.
+- Structured UTF-8 BOM / CRLF CSV, spreadsheet-formula guard, stable identifiers and source context.
+- JSON backup/import and a draft-email action requiring manual attachment of the CSV.
+- No receiving server, analytics or automatic publication of annotations.
+- Asset cache busting is set to `v=1.3`.
+
+## Tests
+
+- `node --check app.js` and `node --check review.js` passed.
+- HTML script references, ID uniqueness, and original data hashes were checked.
+- Controlled Chromium/Playwright test used an inline document and simulated same-origin local storage because the execution environment blocked navigation to test HTTP and local-file addresses. It verified: opening a category and field; saving and updating a note; CSV and JSON downloads; theoretical-map link review; illustrative network-edge review; and no uncaught JavaScript exceptions.
+- This is not a deployed GitHub Pages end-to-end test. After deployment, verify normal site-origin `localStorage` and the email client's attachment workflow manually.
+
+## Confidentiality
+
+The review CSV/JSON is not uploaded by the site. However, public GitHub Pages does not impose recipient-only access to the underlying manuscript-derived atlas. Do not publish exported reviews in the repository.

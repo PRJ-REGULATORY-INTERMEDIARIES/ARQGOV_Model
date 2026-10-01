@@ -2,8 +2,8 @@
 (() => {
   'use strict';
   const D=window.LEXIMETRICS_DATA;
-  const VERSION='ARQGOV-review-1.2';
-  const MODEL='ARQGOV-English-1.1 / review-module-1.2';
+  const VERSION='ARQGOV-review-1.3';
+  const MODEL='ARQGOV-English-1.2 / review-module-1.3';
   const KEY='ARQGOV_CONCEPT_REVIEWS_V1';
   const DRAFT_KEY='ARQGOV_CONCEPT_DRAFTS_V1';
   const PROFILE='ARQGOV_REVIEWER_PROFILE_V1';
@@ -36,7 +36,7 @@
     }
     if(kind==='conceptual_link'){
       const match=id.match(/^([a-z]+)>([a-z]+):(observable|composition|inference|measurement)$/);if(!match)return null;
-      const [,from,to,role]=match;return {kind,id,field_index:null,field_label:'Map connection',target_id:id,dimension_id:'conceptual_map',label:`${from} → ${to} (${role})`,reference:'Interactive theoretical map · editorial/analytical visualization',original:`The map draws ${from} → ${to} as a ${role} link. This is a proposed visualization, not an author-approved claim.`};
+      const [,from,to,role]=match;return {kind,id,field_index:null,field_label:'Map connection',target_id:id,dimension_id:'conceptual_map',label:`${from} → ${to} (${role})`,reference:'Interactive theoretical map · editorial/analytical visualization',original:`The map draws ${from} → ${to} as a link classified as ${role}. This is a proposed visualization, not an author-approved claim.`};
     }
     return null;
   }

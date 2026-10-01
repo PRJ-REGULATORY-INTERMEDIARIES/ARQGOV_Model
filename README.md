@@ -1,37 +1,41 @@
-# ARQGOV Model — Interactive Governance Atlas
+# ARQGOV — English Interactive Conceptual Review (v1.3)
 
-## [👉 Click here to explore the interactive model](https://prj-regulatory-intermediaries.github.io/ARQGOV_Model/)
+**Based on the newly supplied ARQGOV English GitHub Pages v1.2.**
 
-**GitHub Pages URL:** https://prj-regulatory-intermediaries.github.io/ARQGOV_Model/
+[Open the existing GitHub Pages project](https://prj-regulatory-intermediaries.github.io/ARQGOV_Model/)
 
-This is an English-language interactive research atlas based on David Levi-Faur’s preliminary manuscript, *Law and the Architectures of Governance: Towards Relational Leximetrics Approach*.
+This package adds a browser-based, non-destructive **Conceptual Review** module to the English-language research atlas of David Levi-Faur's preliminary manuscript, *Law and the Architectures of Governance: Towards Relational Leximetrics Approach*.
 
-### Features
-- Navigable conceptual map connecting the eight governance dimensions.
-- Searchable catalogue of 83 source-derived categories, with references and explicit unresolved definitions.
-- Illustrative seven-edge regulatory relationship network.
-- Relational coding framework, methodological attributes, metrics, audit notes and cross-layer relationships.
+The atlas presents eight dimensions and 83 category entries, with manuscript-derived definitions and references. It also contains a navigable conceptual map, a stylized seven-relationship network, and methodological notes. All conceptual records (`data.js`, `ontology.json`) are unchanged from the new English v1.2 supplied for this revision. Visual connections and review prompts are exploratory and do not represent author-approved amendments.
 
-### Deployment
-Upload the **contents of this folder**, not the ZIP itself and not an enclosing directory, to the repository’s `main` branch. All six site files must share the repository root: `index.html`, `styles.css`, `data.js`, `app.js`, `ontology.json`, and `.nojekyll`. Retain this `README.md` as a seventh file. Under **Settings → Pages**, select **Deploy from a branch → main → /(root)**. GitHub Pages will serve `index.html` automatically.
+## Quick start for David and Rotem
 
-### Scholarly status
-Analytical reconstruction for academic discussion; not a figure formally endorsed by the author. The manuscript is preliminary and some category definitions and operational thresholds remain unresolved. Publication in a public repository should be authorized by the author.
+1. Open the site and navigate to **Eight dimensions** or the **Theoretical map**.
+2. Open a category. Use **Review this category** for a whole-entry comment, or **Review this field** below an individual manuscript field.
+3. Click a theoretical-map connection to comment on that visual link. To comment on a relationship in the illustrative network, open it and use **Review connection**.
+4. Provide your reviewer name, select an assessment, enter observations or proposed wording, and choose **Save note locally**.
+5. Use **Review notes** at the top of the page to see and edit all saved notes.
+6. Choose **Download CSV for Igor**, then **Prepare email**. Attach the downloaded CSV manually before sending. No notes are transmitted automatically.
+7. Optionally download a **Backup JSON**; it can be imported later in the same model version.
 
-### Interactive Conceptual Review · version 1.2
+## Assessments
 
-**This is the same 1.1 theoretical model with an additive, browser-local review layer.** Existing `data.js` and `ontology.json` have not been edited. Review annotations are not incorporated into the manuscript or its model categories without subsequent scholarly review.
+- Keep as proposed
+- Clarification needed
+- Suggest a revision
+- Potential overlap with another category
+- Further discussion needed
 
-Reviewers can open any category, click **Review this category** or **Review this field**, and provide an assessment, comments and an optional alternative wording. Theoretical diagram connections are also clickable for review; the seven illustrative network edges have review controls in their side panels. The top-right **Review notes** button opens the saved-note summary, CSV export and JSON backup/import.
+## Data handling
 
-**How to return comments to Igor (Option A, without a server):**
-1. Set your reviewer name and record one or more annotations using **Save note locally**.
-2. Click **Review notes → 1 · Download CSV for Igor**.
-3. Click **2 · Prepare email** if desired, and **manually attach the downloaded CSV**. The HTML never sends it automatically. The CSV includes stable element/field IDs, source reference, original text, assessment, comment, suggested revision and timestamp.
-4. To move work to another browser/device, use **Backup JSON** and **Import backup JSON**. Save a backup before clearing browser data.
+The static site uses the reviewer's browser `localStorage`. Neither GitHub Pages nor Igor automatically receives reviewer comments, and the atlas source is not changed by a review. CSV is UTF-8 (with BOM), CRLF-delimited, with stable IDs for the dimension, category, field or connection. Each entry retains an excerpt of the unmodified source text and a version marker.
 
-All notes remain in the current browser's local storage until exported; different reviewers and devices do **not** share a central database. There are no cookies/trackers, external libraries, API calls or cloud storage for review submissions. Local notes may be available to other users of the same browser profile. Browser data removal/private browsing can erase them.
+Local storage is not a confidential vault: it is tied to a browser and website origin and can be cleared, and other people using the same browser profile may be able to view notes. Reviewer names are self-declared rather than authenticated. The reviewer must export and send the CSV explicitly. Do not commit exported reviewer CSV/JSON to the public GitHub repository.
 
-**Confidentiality:** The repository is currently public. GitHub Pages does not restrict readers based on who has been sent the URL; repository files and the deployed manuscript-derived content should be treated as publicly accessible. Do not place confidential comments, credentials or unpublished source material in the repository. CSV/JSON review files should be exchanged privately. Seek the manuscript author's authorization before public deployment.
+**Confidentiality:** a public GitHub Pages site is not access-controlled by sharing a link only with David and Rotem. Obtain the author's consent for publication of manuscript-derived material; restrict hosting if private access is required.
 
-For reviewer instructions and a detailed CSV schema, see [`REVIEW_GUIDE.md`](REVIEW_GUIDE.md).
+## Deployment
+
+Upload the **contents**, not the ZIP file or an enclosing folder, to the repository root. Replace the existing `index.html`, `app.js`, `styles.css`, and `README.md`; add `review.js`; retain `data.js`, `ontology.json` and `.nojekyll`. The versioned references (`?v=1.3`) help prevent stale assets in the browser cache. In repository Settings > Pages, use Deploy from branch > main > /(root).
+
+The included `REVIEW_GUIDE.md` and `QA_REVIEW_MODULE.md` provide reviewer instructions and validation details. This file package has not been deployed or emailed by the authoring tool.
