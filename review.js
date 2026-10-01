@@ -8,6 +8,7 @@
   const DRAFT_KEY='ARQGOV_CONCEPT_DRAFTS_V1';
   const PROFILE='ARQGOV_REVIEWER_PROFILE_V1';
   const dlg=document.getElementById('reviewDialog');
+  const guideDlg=document.getElementById('guideDialog');
   const body=document.getElementById('reviewDialogBody');
   const title=document.getElementById('reviewDialogTitle');
   const count=document.getElementById('reviewCount');
@@ -92,6 +93,11 @@
   function download(name,type,contents){const blob=new Blob([contents],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);}
   async function importJson(e){const file=e.target.files?.[0];if(!file)return;try{if(file.size>5_000_000)throw Error('Backup too large.');const obj=JSON.parse(await file.text());if(obj.schema_version!==VERSION||!Array.isArray(obj.records))throw Error('Unsupported review backup format.');let added=0;for(const r of obj.records){if(!r||typeof r!=='object'||!r.reviewer_name||!r.element_type||!r.element_id||!r.review_item_id||!choices.some(x=>x[0]===r.assessment))continue;const t=resolve(r.element_type,r.element_id,r.element_type==='field'?Number(String(r.review_item_id).match(/field-(\d+)$/)?.[1]):undefined);if(!t||r.review_item_id!==t.target_id)continue;const key=targetKey(r.reviewer_name,t);const candidate={...r,record_key:key,schema_version:VERSION};const old=records.find(x=>x.record_key===key);if(!old||String(candidate.updated_at_utc)>String(old.updated_at_utc)){records=records.filter(x=>x.record_key!==key);records.push(candidate);added++;}}store(KEY,records);updateCount();workspace();alertStatus(`${added} record(s) imported or updated. Please review before exporting.`);}catch(err){alertStatus('Import failed: '+err.message,true);} }
   document.getElementById('reviewWorkspaceBtn').addEventListener('click',workspace);
+  document.getElementById('reviewGuideBtn')?.addEventListener('click',()=>guideDlg?.showModal());
+  document.getElementById('guideClose')?.addEventListener('click',()=>guideDlg?.close());
+  document.getElementById('guideCloseSecondary')?.addEventListener('click',()=>guideDlg?.close());
+  document.getElementById('guideOpenWorkspace')?.addEventListener('click',()=>{guideDlg?.close();workspace();});
+  guideDlg?.addEventListener('click',e=>{if(e.target===guideDlg)guideDlg.close();});
   document.getElementById('reviewClose').addEventListener('click',()=>dlg.close());
   dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close();});
   window.ARQGOV_REVIEW={open,workspace,get count(){return records.length;}};

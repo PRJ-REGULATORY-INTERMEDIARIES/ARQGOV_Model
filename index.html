@@ -34,7 +34,7 @@
     <div class="main-column">
       <header class="topbar">
         <div class="breadcrumbs">ATLAS / <span id="breadcrumb">OVERVIEW</span></div>
-        <div class="top-actions"><button id="reviewWorkspaceBtn" class="review-top-action" type="button" aria-label="Open conceptual review workspace">Review notes <span id="reviewCount">0</span></button><button id="topSearchBtn" class="quiet-action" type="button" title="Open catalogue search">⌕ <span>Explore categories</span></button><span class="version-chip">WORKING PAPER</span></div>
+        <div class="top-actions"><button id="reviewGuideBtn" class="review-guide-action" type="button" aria-label="Open review guide">Review guide</button><button id="reviewWorkspaceBtn" class="review-top-action" type="button" aria-label="Open conceptual review workspace">Review notes <span id="reviewCount">0</span></button><button id="topSearchBtn" class="quiet-action" type="button" title="Open catalogue search">⌕ <span>Explore categories</span></button><span class="version-chip">WORKING PAPER</span></div>
       </header>
       <main id="workspace" tabindex="-1">
         <section class="view active" id="view-map" aria-labelledby="mapTitle">
@@ -76,6 +76,30 @@
   <dialog id="reviewDialog" class="review-dialog" aria-labelledby="reviewDialogTitle">
     <div class="review-dialog-top"><div><div class="eyebrow">ARQGOV / CONCEPTUAL REVIEW</div><h2 id="reviewDialogTitle">Review</h2></div><button id="reviewClose" class="close-btn" type="button" aria-label="Close review">×</button></div>
     <div id="reviewDialogBody" class="review-dialog-body"></div>
+  </dialog>
+  <dialog id="guideDialog" class="review-dialog" aria-labelledby="guideDialogTitle">
+    <div class="review-dialog-top"><div><div class="eyebrow">ARQGOV / REVIEW GUIDE</div><h2 id="guideDialogTitle">How David and Rotem can use this file</h2></div><button id="guideClose" class="close-btn" type="button" aria-label="Close review guide">×</button></div>
+    <div class="review-dialog-body review-guide-body">
+      <p class="review-lead">This interactive HTML can be used as a structured conceptual review tool. It does not change the manuscript automatically. It helps reviewers leave comments on categories, fields and links, and then send those observations back to Igor.</p>
+      <div class="guide-grid">
+        <section class="guide-card"><h3>1. Explore the model</h3><p>Use <strong>Theoretical map</strong>, <strong>Eight dimensions</strong>, <strong>Relational network</strong> and <strong>Method &amp; audit</strong> to inspect the conceptual structure from different angles.</p></section>
+        <section class="guide-card"><h3>2. Open an item to review</h3><p>Click a category, a field within a definition, a relationship edge or a conceptual link. Then choose <strong>Review this item</strong> or use the review controls when they appear.</p></section>
+        <section class="guide-card"><h3>3. Record your judgment</h3><p>Select one of the review options: <em>Keep as proposed</em>, <em>Clarification needed</em>, <em>Suggest a revision</em>, <em>Potential overlap</em> or <em>Further discussion needed</em>. Add comments and, if useful, a suggested refinement.</p></section>
+        <section class="guide-card"><h3>4. Save notes locally</h3><p>Click <strong>Save note locally</strong>. Notes are stored only in this browser on this device. They are not sent automatically to Igor, GitHub or any server.</p></section>
+        <section class="guide-card"><h3>5. Review all notes together</h3><p>Use the <strong>Review notes</strong> button in the top bar to open the review workspace. There you can inspect, edit, delete, back up or export all saved observations.</p></section>
+        <section class="guide-card"><h3>6. Send the review to Igor</h3><p>In the review workspace, click <strong>Download CSV for Igor</strong>. Then use <strong>Prepare email</strong> or attach the CSV manually to an email. A JSON backup is also available for safety.</p></section>
+      </div>
+      <div class="guide-tips">
+        <h3>Suggested review focus</h3>
+        <ul>
+          <li>Comment only where you think clarification, correction or refinement would be useful — it is not necessary to annotate every category.</li>
+          <li>Focus especially on category boundaries, missing distinctions, overlaps and the relation between functions, mechanisms and relationships.</li>
+          <li>If two concepts seem too close, note the possible overlap and explain what should distinguish them.</li>
+          <li>If using a shared or temporary computer, export the CSV or JSON before closing the browser.</li>
+        </ul>
+      </div>
+      <div class="guide-actions"><button id="guideOpenWorkspace" class="review-primary" type="button">Open review workspace</button><button id="guideCloseSecondary" class="review-secondary" type="button">Close guide</button></div>
+    </div>
   </dialog>
   <div class="sr-only" role="status" id="announce" aria-live="polite"></div>
 </body>
